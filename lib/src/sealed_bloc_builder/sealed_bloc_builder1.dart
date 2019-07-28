@@ -4,20 +4,20 @@ import 'package:bloc/bloc.dart' as bloc;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
-typedef WidgetSealedJoin<A> = Widget Function(
+typedef WidgetSealedJoin1<A> = Widget Function(
   Widget Function(A) mapFirst,
 );
 
-typedef SealedBlocWidgetBuilder<S extends Union0<A>, A> = Widget Function(
+typedef SealedBlocWidgetBuilder1<S extends Union0<A>, A> = Widget Function(
   BuildContext context,
-  WidgetSealedJoin<A>,
+  WidgetSealedJoin1<A>,
 );
 
-class SealedBlocBuilder<Bloc extends bloc.Bloc<dynamic, State>,
+class SealedBlocBuilder1<Bloc extends bloc.Bloc<dynamic, State>,
     State extends Union0<A>, A> extends BlocBuilderBase<Bloc, State> {
-  final SealedBlocWidgetBuilder<State, A> builder;
+  final SealedBlocWidgetBuilder1<State, A> builder;
 
-  const SealedBlocBuilder({
+  const SealedBlocBuilder1({
     Key key,
     @required this.builder,
     Bloc bloc,

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
-import 'package:sealed_unions/sealed_unions.dart';
 
 void main() => runApp(MyApp());
 

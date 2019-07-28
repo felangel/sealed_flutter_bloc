@@ -9,12 +9,12 @@ class MockUnion extends Mock implements Union0<dynamic> {}
 class MockBloc extends Mock implements Bloc<dynamic, MockUnion> {}
 
 void main() {
-  group('SealedBlocBuilder', () {
+  group('SealedBlocBuilder1', () {
     testWidgets('should throw AssertionError if builder is null',
         (tester) async {
       try {
         await tester.pumpWidget(
-          SealedBlocBuilder<MockBloc, MockUnion, dynamic>(
+          SealedBlocBuilder1<MockBloc, MockUnion, dynamic>(
             builder: null,
           ),
         );
