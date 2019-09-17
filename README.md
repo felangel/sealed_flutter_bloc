@@ -1,13 +1,26 @@
-# sealed_flutter_bloc
+<p align="center">
+  <img src="https://github.com/felangel/sealed_flutter_bloc/raw/master/docs/assets/sealed_flutter_bloc.png" width="50%" alt="logo" />
+  <br/>
+  <a href="https://circleci.com/gh/felangel/sealed_flutter_bloc">
+    <img alt="Build Status" src="https://circleci.com/gh/felangel/sealed_flutter_bloc.svg?style=shield">
+  </a>
+  <a href="https://codecov.io/gh/felangel/sealed_flutter_bloc">
+    <img alt="Code Coverage" src="https://codecov.io/gh/felangel/sealed_flutter_bloc/branch/master/graph/badge.svg" />
+  </a>
+  <a href="https://pub.dartlang.org/packages/sealed_flutter_bloc">
+    <img alt="Pub Package" src="https://img.shields.io/pub/v/sealed_flutter_bloc.svg">
+  </a>
+  <a href="https://opensource.org/licenses/MIT">
+    <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg">
+  </a>
+  <p align="center" style="font-size: 4.5vw"><a href="https://pub.dev/packages/flutter_bloc">flutter_bloc</a> meets <a href="https://pub.dev/packages/sealed_union">sealed_unions</a>
+</p>
 
-[![Build Status](https://circleci.com/gh/felangel/sealed_flutter_bloc.svg?style=shield)](https://circleci.com/gh/felangel/sealed_flutter_bloc)
-[![Code Coverage](https://codecov.io/gh/felangel/sealed_flutter_bloc/branch/master/graph/badge.svg)](https://codecov.io/gh/felangel/sealed_flutter_bloc)
-
-[sealed_unions](https://pub.dev/packages/sealed_unions) + [flutter_bloc](https://pub.dev/packages/flutter_bloc)
+---
 
 ## Quick Start
 
-### Implement your States with `UnionNImpl`
+### Extend `UnionNImpl`
 
 ```dart
 class MyState extends Union4Impl<Initial, Loading, Success, Failure> {
@@ -43,90 +56,21 @@ class Failure {
 }
 ```
 
-### Implement your Events
+### Use `SealedBlocBuilder`
 
 ```dart
-enum MyEvent { load, error }
-```
-
-### Build your Bloc
-
-```dart
-class MyBloc extends Bloc<MyEvent, MyState> {
-  @override
-  MyState get initialState => MyState.initial();
-
-  @override
-  Stream<MyState> mapEventToState(MyEvent event) async* {
-    switch (event) {
-      case MyEvent.load:
-        yield MyState.loading();
-        await Future<void>.delayed(Duration(seconds: 3));
-        yield MyState.success(data: 'Some Data');
-        break;
-      case MyEvent.error:
-        yield MyState.failure(error: 'oops!');
-        break;
-    }
-  }
-}
-```
-
-### Use `SealedBlocBuilder` to hook up your bloc to your UI
-
-```dart
-class MyApp extends StatelessWidget {
+class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: BlocProvider<MyBloc>(
-        builder: (context) => MyBloc(),
-        child: MyHome(),
+    return SealedBlocBuilder4<MyBloc, MyState, Initial, Loading, Success,
+        Failure>(
+      builder: (context, states) => states(
+        (initial) => Text('Initial'),
+        (loading) => CircularProgressIndicator(),
+        (success) => Text('Success: ${success.data}'),
+        (failure) => Text('Failure: ${failure.error}'),
       ),
     );
   }
 }
-
-class MyHome extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Home')),
-      body: Center(
-        child: SealedBlocBuilder4<MyBloc, MyState, Initial, Loading, Success,
-            Failure>(
-          builder: (context, states) => states(
-            (initial) => Text('Initial'),
-            (loading) => CircularProgressIndicator(),
-            (success) => Text('Success: ${success.data}'),
-            (failure) => Text('Failure: ${failure.error}'),
-          ),
-        ),
-      ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: FloatingActionButton(
-              child: Icon(Icons.check),
-              onPressed: () {
-                BlocProvider.of<MyBloc>(context).dispatch(MyEvent.load);
-              },
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: FloatingActionButton(
-              child: Icon(Icons.error),
-              onPressed: () {
-                BlocProvider.of<MyBloc>(context).dispatch(MyEvent.error);
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 ```
