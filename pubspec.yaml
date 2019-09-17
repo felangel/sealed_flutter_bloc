@@ -12,7 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_bloc: ^0.20.0
+  bloc: ^0.15.0
+  flutter_bloc: ^0.21.0
   sealed_unions: ^3.0.2+2
 
 dev_dependencies:
