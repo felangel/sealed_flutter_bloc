@@ -12,9 +12,12 @@
   </a>
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg">
-  </a>
-  <p align="center" style="font-size: 4.5vw"><a href="https://pub.dev/packages/flutter_bloc">flutter_bloc</a> meets <a href="https://pub.dev/packages/sealed_union">sealed_unions</a>
+  </a>  
 </p>
+<i>
+  <p align="center"><a href="https://pub.dev/packages/flutter_bloc">flutter_bloc</a> meets <a href="https://pub.dev/packages/sealed_union">sealed_unions</a>
+  </p>
+</i>
 
 ---
 
