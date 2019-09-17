@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/felangel/sealed_flutter_bloc/raw/master/docs/assets/sealed_flutter_bloc.png" width="50%" alt="logo" />
+  <img src="https://github.com/felangel/sealed_flutter_bloc/raw/master/doc/assets/sealed_flutter_bloc.png" width="50%" alt="logo" />
   <br/>
   <a href="https://circleci.com/gh/felangel/sealed_flutter_bloc">
     <img alt="Build Status" src="https://circleci.com/gh/felangel/sealed_flutter_bloc.svg?style=shield">
