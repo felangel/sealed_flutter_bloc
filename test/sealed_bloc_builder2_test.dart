@@ -1,12 +1,8 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
-import 'package:sealed_unions/sealed_unions.dart';
-import 'package:bloc/bloc.dart';
 import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
-class MockUnion extends Mock implements Union2<dynamic, dynamic> {}
-
-class MockBloc extends Mock implements Bloc<dynamic, MockUnion> {}
+import 'helpers/helper_bloc2.dart';
 
 void main() {
   group('SealedBlocBuilder2', () {
@@ -14,13 +10,34 @@ void main() {
         (tester) async {
       try {
         await tester.pumpWidget(
-          SealedBlocBuilder2<MockBloc, MockUnion, dynamic, dynamic>(
+          SealedBlocBuilder2<HelperBloc2, HelperState2, State1, State2>(
+            bloc: HelperBloc2(),
             builder: null,
           ),
         );
       } catch (error) {
         expect(error, isAssertionError);
       }
+    });
+
+    testWidgets('should render properly', (tester) async {
+      final bloc = HelperBloc2();
+      await tester.pumpWidget(
+        SealedBlocBuilder2<HelperBloc2, HelperState2, State1, State2>(
+          bloc: bloc,
+          builder: (context, states) {
+            return states(
+              (State1 first) => Container(key: Key('__target1__')),
+              (State2 second) => Container(key: Key('__target2__')),
+            );
+          },
+        ),
+      );
+      expect(find.byKey(Key('__target1__')), findsOneWidget);
+
+      bloc.dispatch(HelperEvent2.event2);
+      await tester.pumpAndSettle();
+      expect(find.byKey(Key('__target2__')), findsOneWidget);
     });
   });
 }

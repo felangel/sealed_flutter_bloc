@@ -1,13 +1,8 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
-import 'package:sealed_unions/sealed_unions.dart';
-import 'package:bloc/bloc.dart';
 import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
-class MockUnion extends Mock
-    implements Union4<dynamic, dynamic, dynamic, dynamic> {}
-
-class MockBloc extends Mock implements Bloc<dynamic, MockUnion> {}
+import 'helpers/helper_bloc4.dart';
 
 void main() {
   group('SealedBlocBuilder4', () {
@@ -15,14 +10,46 @@ void main() {
         (tester) async {
       try {
         await tester.pumpWidget(
-          SealedBlocBuilder4<MockBloc, MockUnion, dynamic, dynamic, dynamic,
-              dynamic>(
+          SealedBlocBuilder4<HelperBloc4, HelperState4, State1, State2, State3,
+              State4>(
+            bloc: HelperBloc4(),
             builder: null,
           ),
         );
       } catch (error) {
         expect(error, isAssertionError);
       }
+    });
+
+    testWidgets('should render properly', (tester) async {
+      final bloc = HelperBloc4();
+      await tester.pumpWidget(
+        SealedBlocBuilder4<HelperBloc4, HelperState4, State1, State2, State3,
+            State4>(
+          bloc: bloc,
+          builder: (context, states) {
+            return states(
+              (State1 first) => Container(key: Key('__target1__')),
+              (State2 second) => Container(key: Key('__target2__')),
+              (State3 third) => Container(key: Key('__target3__')),
+              (State4 fourth) => Container(key: Key('__target4__')),
+            );
+          },
+        ),
+      );
+      expect(find.byKey(Key('__target1__')), findsOneWidget);
+
+      bloc.dispatch(HelperEvent4.event2);
+      await tester.pumpAndSettle();
+      expect(find.byKey(Key('__target2__')), findsOneWidget);
+
+      bloc.dispatch(HelperEvent4.event3);
+      await tester.pumpAndSettle();
+      expect(find.byKey(Key('__target3__')), findsOneWidget);
+
+      bloc.dispatch(HelperEvent4.event4);
+      await tester.pumpAndSettle();
+      expect(find.byKey(Key('__target4__')), findsOneWidget);
     });
   });
 }
