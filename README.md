@@ -77,3 +77,7 @@ class MyWidget extends StatelessWidget {
   }
 }
 ```
+
+## Additional Examples
+
+More examples can be found at [sealed_flutter_bloc_samples](https://github.com/felangel/sealed_flutter_bloc_samples).
