@@ -1,9 +1,10 @@
 import 'dart:async';
 
-import 'package:flutter_infinite_list/repositories/repositories.dart';
 import 'package:meta/meta.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:bloc/bloc.dart';
+
+import 'package:flutter_infinite_list/repositories/repositories.dart';
 import 'package:flutter_infinite_list/bloc/bloc.dart';
 
 class PostBloc extends Bloc<PostEvent, PostState> {

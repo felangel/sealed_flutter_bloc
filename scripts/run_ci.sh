@@ -8,11 +8,11 @@ dartfmt --set-exit-if-changed .
 
 if grep -q 'sdk: flutter' "./pubspec.yaml"; then
   flutter packages get
-  flutter analyze ./lib
+  flutter analyze
   flutter test --coverage --coverage-path coverage/lcov.info
 else
   pub get
-  dartanalyzer --fatal-infos --fatal-warnings ./lib
+  dartanalyzer --fatal-infos --fatal-warnings .
   pub run test # have to run this explicitly as test_coverage is NOT showing exceptions correctly
   pub run test_coverage
 fi

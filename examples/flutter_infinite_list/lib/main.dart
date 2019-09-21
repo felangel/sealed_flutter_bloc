@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:bloc/bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
 import 'package:flutter_infinite_list/repositories/repositories.dart';
 import 'package:flutter_infinite_list/bloc/bloc.dart';
 import 'package:flutter_infinite_list/models/models.dart';
-import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();

@@ -6,7 +6,4 @@ class Post extends Equatable {
   final String body;
 
   Post({this.id, this.title, this.body}) : super(<Object>[id, title, body]);
-
-  @override
-  String toString() => 'Post { id: $id }';
 }

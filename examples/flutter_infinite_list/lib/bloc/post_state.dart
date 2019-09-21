@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
+import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
 import 'package:flutter_infinite_list/models/models.dart';
-import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
 class PostState extends Union3Impl<Initial, Success, Failure> {
   static final unions = const Triplet<Initial, Success, Failure>();
