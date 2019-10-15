@@ -43,31 +43,31 @@ void main() {
       );
       expect(find.byKey(Key('__target1__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent8.event2);
+      bloc.add(HelperEvent8.event2);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target2__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent8.event3);
+      bloc.add(HelperEvent8.event3);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target3__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent8.event4);
+      bloc.add(HelperEvent8.event4);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target4__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent8.event5);
+      bloc.add(HelperEvent8.event5);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target5__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent8.event6);
+      bloc.add(HelperEvent8.event6);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target6__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent8.event7);
+      bloc.add(HelperEvent8.event7);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target7__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent8.event8);
+      bloc.add(HelperEvent8.event8);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target8__')), findsOneWidget);
     });

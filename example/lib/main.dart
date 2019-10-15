@@ -97,7 +97,7 @@ class MyHome extends StatelessWidget {
             child: FloatingActionButton(
               child: Icon(Icons.check),
               onPressed: () {
-                BlocProvider.of<MyBloc>(context).dispatch(MyEvent.load);
+                BlocProvider.of<MyBloc>(context).add(MyEvent.load);
               },
             ),
           ),
@@ -106,7 +106,7 @@ class MyHome extends StatelessWidget {
             child: FloatingActionButton(
               child: Icon(Icons.error),
               onPressed: () {
-                BlocProvider.of<MyBloc>(context).dispatch(MyEvent.error);
+                BlocProvider.of<MyBloc>(context).add(MyEvent.error);
               },
             ),
           ),

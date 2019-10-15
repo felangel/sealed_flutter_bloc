@@ -44,35 +44,35 @@ void main() {
       );
       expect(find.byKey(Key('__target1__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event2);
+      bloc.add(HelperEvent9.event2);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target2__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event3);
+      bloc.add(HelperEvent9.event3);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target3__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event4);
+      bloc.add(HelperEvent9.event4);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target4__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event5);
+      bloc.add(HelperEvent9.event5);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target5__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event6);
+      bloc.add(HelperEvent9.event6);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target6__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event7);
+      bloc.add(HelperEvent9.event7);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target7__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event8);
+      bloc.add(HelperEvent9.event8);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target8__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent9.event9);
+      bloc.add(HelperEvent9.event9);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target9__')), findsOneWidget);
     });
