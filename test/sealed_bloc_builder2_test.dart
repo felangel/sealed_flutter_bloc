@@ -35,7 +35,7 @@ void main() {
       );
       expect(find.byKey(Key('__target1__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent2.event2);
+      bloc.add(HelperEvent2.event2);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target2__')), findsOneWidget);
     });

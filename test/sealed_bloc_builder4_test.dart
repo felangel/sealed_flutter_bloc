@@ -39,15 +39,15 @@ void main() {
       );
       expect(find.byKey(Key('__target1__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent4.event2);
+      bloc.add(HelperEvent4.event2);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target2__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent4.event3);
+      bloc.add(HelperEvent4.event3);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target3__')), findsOneWidget);
 
-      bloc.dispatch(HelperEvent4.event4);
+      bloc.add(HelperEvent4.event4);
       await tester.pumpAndSettle();
       expect(find.byKey(Key('__target4__')), findsOneWidget);
     });
