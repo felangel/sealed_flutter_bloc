@@ -1,14 +1,17 @@
 <p align="center">
   <img src="https://github.com/felangel/sealed_flutter_bloc/raw/master/doc/assets/sealed_flutter_bloc.png" width="50%" alt="logo" />
   <br/>
+  <a href="https://pub.dartlang.org/packages/sealed_flutter_bloc">
+    <img alt="Pub Package" src="https://img.shields.io/pub/v/sealed_flutter_bloc.svg">
+  </a>
   <a href="https://circleci.com/gh/felangel/sealed_flutter_bloc">
     <img alt="Build Status" src="https://circleci.com/gh/felangel/sealed_flutter_bloc.svg?style=shield">
   </a>
   <a href="https://codecov.io/gh/felangel/sealed_flutter_bloc">
     <img alt="Code Coverage" src="https://codecov.io/gh/felangel/sealed_flutter_bloc/branch/master/graph/badge.svg" />
   </a>
-  <a href="https://pub.dartlang.org/packages/sealed_flutter_bloc">
-    <img alt="Pub Package" src="https://img.shields.io/pub/v/sealed_flutter_bloc.svg">
+  <a href="https://github.com/tenhobi/effective_dart">
+    <img alt="Effective Dart" src="https://img.shields.io/badge/style-effective_dart-40c4ff.svg" />
   </a>
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-blue.svg">

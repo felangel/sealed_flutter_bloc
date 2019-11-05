@@ -6,7 +6,7 @@ import 'package:sealed_unions/sealed_unions.dart';
 enum HelperEvent2 { event2 }
 
 class HelperState2 extends Union2Impl<State1, State2> {
-  static final unions = const Doublet<State1, State2>();
+  static final Doublet<State1, State2> unions = const Doublet<State1, State2>();
 
   HelperState2._(Union2<State1, State2> union) : super(union);
 

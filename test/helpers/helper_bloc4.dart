@@ -6,7 +6,8 @@ import 'package:sealed_unions/sealed_unions.dart';
 enum HelperEvent4 { event2, event3, event4 }
 
 class HelperState4 extends Union4Impl<State1, State2, State3, State4> {
-  static final unions = const Quartet<State1, State2, State3, State4>();
+  static final Quartet<State1, State2, State3, State4> unions =
+      const Quartet<State1, State2, State3, State4>();
 
   HelperState4._(Union4<State1, State2, State3, State4> union) : super(union);
 

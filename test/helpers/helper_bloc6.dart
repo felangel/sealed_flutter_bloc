@@ -7,7 +7,7 @@ enum HelperEvent6 { event2, event3, event4, event5, event6 }
 
 class HelperState6
     extends Union6Impl<State1, State2, State3, State4, State5, State6> {
-  static final unions =
+  static final Sextet<State1, State2, State3, State4, State5, State6> unions =
       const Sextet<State1, State2, State3, State4, State5, State6>();
 
   HelperState6._(Union6<State1, State2, State3, State4, State5, State6> union)

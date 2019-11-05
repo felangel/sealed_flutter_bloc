@@ -1,3 +1,8 @@
+# 2.0.0
+
+- Update to `bloc ^2.0.0`
+- Adhere to [effective dart](https://dart.dev/guides/language/effective-dart)
+
 # 1.0.0
 
 Update to `bloc ^1.0.0`

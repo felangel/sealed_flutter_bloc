@@ -22,6 +22,7 @@ typedef SealedBlocWidgetBuilder8<S extends Union8<A, B, C, D, E, F, G, H>, A, B,
   WidgetSealedJoin8<A, B, C, D, E, F, G, H>,
 );
 
+/// {@macro sealedblocbuilder}
 class SealedBlocBuilder8<
     Bloc extends bloc.Bloc<dynamic, State>,
     State extends Union8<A, B, C, D, E, F, G, H>,
@@ -33,8 +34,10 @@ class SealedBlocBuilder8<
     F,
     G,
     H> extends BlocBuilderBase<Bloc, State> {
+  /// {@macro sealedblocwidgetbuilder}
   final SealedBlocWidgetBuilder8<State, A, B, C, D, E, F, G, H> builder;
 
+  /// {@macro sealedblocbuilder}
   const SealedBlocBuilder8({
     Key key,
     @required this.builder,

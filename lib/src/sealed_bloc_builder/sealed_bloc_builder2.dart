@@ -15,10 +15,13 @@ typedef SealedBlocWidgetBuilder2<S extends Union2<A, B>, A, B> = Widget
   WidgetSealedJoin2<A, B>,
 );
 
+/// {@macro sealedblocbuilder}
 class SealedBlocBuilder2<Bloc extends bloc.Bloc<dynamic, State>,
     State extends Union2<A, B>, A, B> extends BlocBuilderBase<Bloc, State> {
+  /// {@macro sealedblocwidgetbuilder}
   final SealedBlocWidgetBuilder2<State, A, B> builder;
 
+  /// {@macro sealedblocbuilder}
   const SealedBlocBuilder2({
     Key key,
     @required this.builder,

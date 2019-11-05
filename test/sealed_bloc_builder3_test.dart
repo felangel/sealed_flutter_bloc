@@ -15,7 +15,7 @@ void main() {
             builder: null,
           ),
         );
-      } catch (error) {
+      } on Object catch (error) {
         expect(error, isAssertionError);
       }
     });

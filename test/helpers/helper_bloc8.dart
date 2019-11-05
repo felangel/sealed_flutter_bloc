@@ -7,8 +7,10 @@ enum HelperEvent8 { event2, event3, event4, event5, event6, event7, event8 }
 
 class HelperState8 extends Union8Impl<State1, State2, State3, State4, State5,
     State6, State7, State8> {
-  static final unions = const Octet<State1, State2, State3, State4, State5,
-      State6, State7, State8>();
+  static final Octet<State1, State2, State3, State4, State5, State6, State7,
+          State8> unions =
+      const Octet<State1, State2, State3, State4, State5, State6, State7,
+          State8>();
 
   HelperState8._(
       Union8<State1, State2, State3, State4, State5, State6, State7, State8>

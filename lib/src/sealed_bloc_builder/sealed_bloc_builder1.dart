@@ -13,10 +13,29 @@ typedef SealedBlocWidgetBuilder1<S extends Union0<A>, A> = Widget Function(
   WidgetSealedJoin1<A>,
 );
 
+/// {@template sealedblocbuilder}
+/// [SealedBlocBuilder] is a special type of `BlocBuilder` which
+/// ensures that every possible [bloc] state has a corresponding `widget`.
+/// ```dart
+/// SealedBlocBuilder3<MyBloc, MyState, Loading, Success, Failure>(
+///   builder: (context, states) => states(
+///     (loading) => CircularProgressIndicator(),
+///     (success) => Text('Success: ${success.data}'),
+///     (failure) => Text('Failure: ${failure.error}'),
+///   ),
+/// )
+/// ```
+/// {@endtemplate}
 class SealedBlocBuilder1<Bloc extends bloc.Bloc<dynamic, State>,
     State extends Union0<A>, A> extends BlocBuilderBase<Bloc, State> {
+  /// {@template sealedblocwidgetbuilder}
+  /// [builder] will be called with a `BuildContext` and the
+  /// union of all [bloc] states and must return a `widget`
+  /// for each possible state.
+  /// {@endtemplate}
   final SealedBlocWidgetBuilder1<State, A> builder;
 
+  /// {@macro sealedblocbuilder}
   const SealedBlocBuilder1({
     Key key,
     @required this.builder,
