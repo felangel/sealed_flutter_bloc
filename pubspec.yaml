@@ -1,19 +1,18 @@
 name: sealed_flutter_bloc
 description: flutter_bloc state management extension that integrates sealed_unions.
-version: 2.0.0
-author: Felix Angelov <felangelov@gmail.com>
+version: 3.0.0-dev.1
 repository: https://github.com/felangel/sealed_flutter_bloc
 issue_tracker: https://github.com/felangel/sealed_flutter_bloc/issues
 homepage: https://github.com/felangel/sealed_flutter_bloc
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^2.0.0
-  flutter_bloc: ^2.0.0
+  bloc: ^3.0.0-dev.1
+  flutter_bloc: ^3.0.0-dev.1
   sealed_unions: ^3.0.2+2
 
 dev_dependencies:

@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: BlocProvider<MyBloc>(
-        builder: (context) => MyBloc(),
+        create: (context) => MyBloc(),
         child: MyHome(),
       ),
     );
