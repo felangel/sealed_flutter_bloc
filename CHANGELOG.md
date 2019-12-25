@@ -1,3 +1,8 @@
+# 3.0.0
+
+- Updated to `bloc: ^3.0.0`
+- Updated to `flutter_bloc: ^3.0.0`
+
 # 3.0.0-dev.1
 
 - Updated to `bloc: ^3.0.0-dev.1`
