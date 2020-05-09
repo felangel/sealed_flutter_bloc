@@ -25,7 +25,7 @@ void main() {
         SealedBlocBuilder1<HelperBloc1, HelperState1, State1>(
           bloc: HelperBloc1(),
           builder: (context, states) {
-            return states((State1 first) => Container(key: Key('__target1__')));
+            return states((first) => Container(key: Key('__target1__')));
           },
         ),
       );

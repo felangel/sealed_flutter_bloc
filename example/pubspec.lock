@@ -7,14 +7,14 @@ packages:
       name: bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "4.0.0"
   collection:
     dependency: transitive
     description:
       name: collection
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.14.11"
+    version: "1.14.12"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -26,7 +26,7 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.0"
+    version: "4.0.0"
   meta:
     dependency: transitive
     description:
@@ -47,21 +47,14 @@ packages:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
-  rxdart:
-    dependency: transitive
-    description:
-      name: rxdart
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.23.1"
+    version: "4.1.1"
   sealed_flutter_bloc:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "3.0.0"
+    version: "4.0.0"
   sealed_unions:
     dependency: transitive
     description:
@@ -89,5 +82,5 @@ packages:
     source: hosted
     version: "2.0.8"
 sdks:
-  dart: ">=2.6.0 <3.0.0"
-  flutter: ">=1.12.1"
+  dart: ">=2.7.0 <3.0.0"
+  flutter: ">=1.17.0"

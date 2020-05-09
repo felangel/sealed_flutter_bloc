@@ -27,9 +27,9 @@ void main() {
           bloc: bloc,
           builder: (context, states) {
             return states(
-              (State1 first) => Container(key: Key('__target1__')),
-              (State2 second) => Container(key: Key('__target2__')),
-              (State3 third) => Container(key: Key('__target3__')),
+              (first) => Container(key: Key('__target1__')),
+              (second) => Container(key: Key('__target2__')),
+              (third) => Container(key: Key('__target3__')),
             );
           },
         ),
