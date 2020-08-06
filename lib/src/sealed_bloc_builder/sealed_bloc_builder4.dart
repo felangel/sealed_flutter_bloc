@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:bloc/bloc.dart' as bloc;
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit/flutter_cubit.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
 typedef WidgetSealedJoin4<A, B, C, D> = Widget Function(
@@ -24,7 +24,7 @@ class SealedBlocBuilder4<
     A,
     B,
     C,
-    D> extends BlocBuilderBase<Bloc, State> {
+    D> extends CubitBuilderBase<Bloc, State> {
   /// {@macro sealedblocwidgetbuilder}
   final SealedBlocWidgetBuilder4<State, A, B, C, D> builder;
 
@@ -33,9 +33,9 @@ class SealedBlocBuilder4<
     Key key,
     @required this.builder,
     Bloc bloc,
-    BlocBuilderCondition<State> condition,
+    CubitBuilderCondition<State> buildWhen,
   })  : assert(builder != null),
-        super(key: key, bloc: bloc, condition: condition);
+        super(key: key, cubit: bloc, buildWhen: buildWhen);
 
   @override
   Widget build(BuildContext context, State state) =>
