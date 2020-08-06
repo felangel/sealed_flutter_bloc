@@ -15,7 +15,7 @@ typedef SealedBlocWidgetBuilder1<S extends Union0<A>, A> = Widget Function(
 
 /// {@template sealedblocbuilder}
 /// `SealedBlocBuilder` is a special type of [BlocBuilder] which
-/// ensures that every possible [Bloc] state has a corresponding [Widget].
+/// ensures that every possible [Cubit] state has a corresponding [Widget].
 /// ```dart
 /// SealedBlocBuilder3<MyBloc, MyState, Loading, Success, Failure>(
 ///   builder: (context, states) => states(
@@ -38,8 +38,8 @@ class SealedBlocBuilder1<Cubit extends bloc.Cubit<State>,
         super(key: key, cubit: cubit, buildWhen: buildWhen);
 
   /// {@template sealedblocwidgetbuilder}
-  /// [builder] will be called with a `BuildContext` and the
-  /// union of all [Bloc] states and must return a `widget`
+  /// [builder] will be called with a [BuildContext] and the
+  /// union of all [Cubit] states and must return a [Widget]
   /// for each possible state.
   /// {@endtemplate}
   final SealedBlocWidgetBuilder1<State, A> builder;
