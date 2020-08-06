@@ -16,8 +16,7 @@ class HelperState1 extends Union0Impl<State1> {
 class State1 {}
 
 class HelperBloc1 extends Bloc<HelperEvent1, HelperState1> {
-  @override
-  HelperState1 get initialState => HelperState1.first();
+  HelperBloc1() : super(HelperState1.first());
 
   @override
   Stream<HelperState1> mapEventToState(

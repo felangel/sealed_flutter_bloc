@@ -1,3 +1,9 @@
+# 5.0.0
+
+- Updated to `bloc: ^5.0.0`
+- Updated to `flutter_bloc: ^5.0.0`
+- Use `flutter_cubit`
+
 # 4.0.0
 
 - Updated to `bloc: ^4.0.0`

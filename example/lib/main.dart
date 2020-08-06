@@ -42,8 +42,7 @@ class Failure {
 enum MyEvent { load, error }
 
 class MyBloc extends Bloc<MyEvent, MyState> {
-  @override
-  MyState get initialState => MyState.initial();
+  MyBloc() : super(MyState.initial());
 
   @override
   Stream<MyState> mapEventToState(MyEvent event) async* {

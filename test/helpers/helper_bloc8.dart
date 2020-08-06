@@ -51,8 +51,7 @@ class State7 {}
 class State8 {}
 
 class HelperBloc8 extends Bloc<HelperEvent8, HelperState8> {
-  @override
-  HelperState8 get initialState => HelperState8.first();
+  HelperBloc8() : super(HelperState8.first());
 
   @override
   Stream<HelperState8> mapEventToState(
