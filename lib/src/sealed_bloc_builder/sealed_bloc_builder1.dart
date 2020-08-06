@@ -14,7 +14,7 @@ typedef SealedBlocWidgetBuilder1<S extends Union0<A>, A> = Widget Function(
 );
 
 /// {@template sealedblocbuilder}
-/// [SealedBlocBuilder1] is a special type of [BlocBuilder] which
+/// `SealedBlocBuilder` is a special type of [BlocBuilder] which
 /// ensures that every possible [Bloc] state has a corresponding [Widget].
 /// ```dart
 /// SealedBlocBuilder3<MyBloc, MyState, Loading, Success, Failure>(
