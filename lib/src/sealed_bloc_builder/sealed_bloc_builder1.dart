@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:bloc/bloc.dart' as bloc;
-import 'package:flutter_cubit/flutter_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
 typedef WidgetSealedJoin1<A> = Widget Function(
@@ -14,8 +14,8 @@ typedef SealedBlocWidgetBuilder1<S extends Union0<A>, A> = Widget Function(
 );
 
 /// {@template sealedblocbuilder}
-/// [SealedBlocBuilder] is a special type of `BlocBuilder` which
-/// ensures that every possible [bloc] state has a corresponding `widget`.
+/// [SealedBlocBuilder1] is a special type of [BlocBuilder] which
+/// ensures that every possible [Bloc] state has a corresponding [Widget].
 /// ```dart
 /// SealedBlocBuilder3<MyBloc, MyState, Loading, Success, Failure>(
 ///   builder: (context, states) => states(
@@ -26,23 +26,23 @@ typedef SealedBlocWidgetBuilder1<S extends Union0<A>, A> = Widget Function(
 /// )
 /// ```
 /// {@endtemplate}
-class SealedBlocBuilder1<Bloc extends bloc.Bloc<dynamic, State>,
-    State extends Union0<A>, A> extends CubitBuilderBase<Bloc, State> {
-  /// {@template sealedblocwidgetbuilder}
-  /// [builder] will be called with a `BuildContext` and the
-  /// union of all [bloc] states and must return a `widget`
-  /// for each possible state.
-  /// {@endtemplate}
-  final SealedBlocWidgetBuilder1<State, A> builder;
-
+class SealedBlocBuilder1<Cubit extends bloc.Cubit<State>,
+    State extends Union0<A>, A> extends BlocBuilderBase<Cubit, State> {
   /// {@macro sealedblocbuilder}
   const SealedBlocBuilder1({
     Key key,
     @required this.builder,
-    Bloc bloc,
-    CubitBuilderCondition<State> buildWhen,
+    Cubit cubit,
+    BlocBuilderCondition<State> buildWhen,
   })  : assert(builder != null),
-        super(key: key, cubit: bloc, buildWhen: buildWhen);
+        super(key: key, cubit: cubit, buildWhen: buildWhen);
+
+  /// {@template sealedblocwidgetbuilder}
+  /// [builder] will be called with a `BuildContext` and the
+  /// union of all [Bloc] states and must return a `widget`
+  /// for each possible state.
+  /// {@endtemplate}
+  final SealedBlocWidgetBuilder1<State, A> builder;
 
   @override
   Widget build(BuildContext context, State state) =>

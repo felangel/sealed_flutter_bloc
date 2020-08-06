@@ -6,9 +6,6 @@ import 'package:sealed_unions/sealed_unions.dart';
 enum HelperEvent5 { event2, event3, event4, event5 }
 
 class HelperState5 extends Union5Impl<State1, State2, State3, State4, State5> {
-  static final Quintet<State1, State2, State3, State4, State5> unions =
-      const Quintet<State1, State2, State3, State4, State5>();
-
   HelperState5._(Union5<State1, State2, State3, State4, State5> union)
       : super(union);
 
@@ -21,6 +18,9 @@ class HelperState5 extends Union5Impl<State1, State2, State3, State4, State5> {
   factory HelperState5.fourth() => HelperState5._(unions.fourth(State4()));
 
   factory HelperState5.fifth() => HelperState5._(unions.fifth(State5()));
+
+  static final Quintet<State1, State2, State3, State4, State5> unions =
+      const Quintet<State1, State2, State3, State4, State5>();
 }
 
 class State1 {}

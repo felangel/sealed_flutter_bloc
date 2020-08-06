@@ -6,12 +6,14 @@ import 'helpers/helper_bloc2.dart';
 
 void main() {
   group('SealedBlocBuilder2', () {
+    const targetKey1 = Key('__target1__');
+    const targetKey2 = Key('__target2__');
     testWidgets('should throw AssertionError if builder is null',
         (tester) async {
       try {
         await tester.pumpWidget(
           SealedBlocBuilder2<HelperBloc2, HelperState2, State1, State2>(
-            bloc: HelperBloc2(),
+            cubit: HelperBloc2(),
             builder: null,
           ),
         );
@@ -24,20 +26,20 @@ void main() {
       final bloc = HelperBloc2();
       await tester.pumpWidget(
         SealedBlocBuilder2<HelperBloc2, HelperState2, State1, State2>(
-          bloc: bloc,
+          cubit: bloc,
           builder: (context, states) {
             return states(
-              (first) => Container(key: Key('__target1__')),
-              (second) => Container(key: Key('__target2__')),
+              (first) => const SizedBox(key: targetKey1),
+              (second) => const SizedBox(key: targetKey2),
             );
           },
         ),
       );
-      expect(find.byKey(Key('__target1__')), findsOneWidget);
+      expect(find.byKey(targetKey1), findsOneWidget);
 
       bloc.add(HelperEvent2.event2);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target2__')), findsOneWidget);
+      expect(find.byKey(targetKey2), findsOneWidget);
     });
   });
 }
