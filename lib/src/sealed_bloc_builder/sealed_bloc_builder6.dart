@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'package:bloc/bloc.dart' as bloc;
-import 'package:flutter_cubit/flutter_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
 typedef WidgetSealedJoin6<A, B, C, D, E, F> = Widget Function(
@@ -22,25 +22,25 @@ typedef SealedBlocWidgetBuilder6<S extends Union6<A, B, C, D, E, F>, A, B, C, D,
 
 /// {@macro sealedblocbuilder}
 class SealedBlocBuilder6<
-    Bloc extends bloc.Bloc<dynamic, State>,
+    Cubit extends bloc.Cubit<State>,
     State extends Union6<A, B, C, D, E, F>,
     A,
     B,
     C,
     D,
     E,
-    F> extends CubitBuilderBase<Bloc, State> {
-  /// {@macro sealedblocwidgetbuilder}
-  final SealedBlocWidgetBuilder6<State, A, B, C, D, E, F> builder;
-
+    F> extends BlocBuilderBase<Cubit, State> {
   /// {@macro sealedblocbuilder}
   const SealedBlocBuilder6({
     Key key,
     @required this.builder,
-    Bloc bloc,
-    CubitBuilderCondition<State> buildWhen,
+    Cubit cubit,
+    BlocBuilderCondition<State> buildWhen,
   })  : assert(builder != null),
-        super(key: key, cubit: bloc, buildWhen: buildWhen);
+        super(key: key, cubit: cubit, buildWhen: buildWhen);
+
+  /// {@macro sealedblocwidgetbuilder}
+  final SealedBlocWidgetBuilder6<State, A, B, C, D, E, F> builder;
 
   @override
   Widget build(BuildContext context, State state) =>

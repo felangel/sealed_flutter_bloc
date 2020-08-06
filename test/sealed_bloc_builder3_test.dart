@@ -6,12 +6,15 @@ import 'helpers/helper_bloc3.dart';
 
 void main() {
   group('SealedBlocBuilder3', () {
+    const targetKey1 = Key('__target1__');
+    const targetKey2 = Key('__target2__');
+    const targetKey3 = Key('__target3__');
     testWidgets('should throw AssertionError if builder is null',
         (tester) async {
       try {
         await tester.pumpWidget(
           SealedBlocBuilder3<HelperBloc3, HelperState3, State1, State2, State3>(
-            bloc: HelperBloc3(),
+            cubit: HelperBloc3(),
             builder: null,
           ),
         );
@@ -24,25 +27,25 @@ void main() {
       final bloc = HelperBloc3();
       await tester.pumpWidget(
         SealedBlocBuilder3<HelperBloc3, HelperState3, State1, State2, State3>(
-          bloc: bloc,
+          cubit: bloc,
           builder: (context, states) {
             return states(
-              (first) => Container(key: Key('__target1__')),
-              (second) => Container(key: Key('__target2__')),
-              (third) => Container(key: Key('__target3__')),
+              (first) => const SizedBox(key: targetKey1),
+              (second) => const SizedBox(key: targetKey2),
+              (third) => const SizedBox(key: targetKey3),
             );
           },
         ),
       );
-      expect(find.byKey(Key('__target1__')), findsOneWidget);
+      expect(find.byKey(targetKey1), findsOneWidget);
 
       bloc.add(HelperEvent3.event2);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target2__')), findsOneWidget);
+      expect(find.byKey(targetKey2), findsOneWidget);
 
       bloc.add(HelperEvent3.event3);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target3__')), findsOneWidget);
+      expect(find.byKey(targetKey3), findsOneWidget);
     });
   });
 }

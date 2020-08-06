@@ -1,3 +1,9 @@
+# 6.0.0
+
+- Updated to `bloc: ^6.0.0`
+- Updated to `flutter_bloc: ^6.0.0`
+- Remove `flutter_cubit` dependency
+
 # 5.0.0
 
 - Updated to `bloc: ^5.0.0`

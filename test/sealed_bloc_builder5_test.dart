@@ -6,13 +6,18 @@ import 'helpers/helper_bloc5.dart';
 
 void main() {
   group('SealedBlocBuilder5', () {
+    const targetKey1 = Key('__target1__');
+    const targetKey2 = Key('__target2__');
+    const targetKey3 = Key('__target3__');
+    const targetKey4 = Key('__target4__');
+    const targetKey5 = Key('__target5__');
     testWidgets('should throw AssertionError if builder is null',
         (tester) async {
       try {
         await tester.pumpWidget(
           SealedBlocBuilder5<HelperBloc5, HelperState5, State1, State2, State3,
               State4, State5>(
-            bloc: HelperBloc5(),
+            cubit: HelperBloc5(),
             builder: null,
           ),
         );
@@ -26,35 +31,35 @@ void main() {
       await tester.pumpWidget(
         SealedBlocBuilder5<HelperBloc5, HelperState5, State1, State2, State3,
             State4, State5>(
-          bloc: bloc,
+          cubit: bloc,
           builder: (context, states) {
             return states(
-              (first) => Container(key: Key('__target1__')),
-              (second) => Container(key: Key('__target2__')),
-              (third) => Container(key: Key('__target3__')),
-              (fourth) => Container(key: Key('__target4__')),
-              (fifth) => Container(key: Key('__target5__')),
+              (first) => const SizedBox(key: targetKey1),
+              (second) => const SizedBox(key: targetKey2),
+              (third) => const SizedBox(key: targetKey3),
+              (fourth) => const SizedBox(key: targetKey4),
+              (fifth) => const SizedBox(key: targetKey5),
             );
           },
         ),
       );
-      expect(find.byKey(Key('__target1__')), findsOneWidget);
+      expect(find.byKey(targetKey1), findsOneWidget);
 
       bloc.add(HelperEvent5.event2);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target2__')), findsOneWidget);
+      expect(find.byKey(targetKey2), findsOneWidget);
 
       bloc.add(HelperEvent5.event3);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target3__')), findsOneWidget);
+      expect(find.byKey(targetKey3), findsOneWidget);
 
       bloc.add(HelperEvent5.event4);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target4__')), findsOneWidget);
+      expect(find.byKey(targetKey4), findsOneWidget);
 
       bloc.add(HelperEvent5.event5);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target5__')), findsOneWidget);
+      expect(find.byKey(targetKey5), findsOneWidget);
     });
   });
 }

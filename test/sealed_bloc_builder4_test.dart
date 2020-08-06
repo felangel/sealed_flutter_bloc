@@ -6,13 +6,17 @@ import 'helpers/helper_bloc4.dart';
 
 void main() {
   group('SealedBlocBuilder4', () {
+    const targetKey1 = Key('__target1__');
+    const targetKey2 = Key('__target2__');
+    const targetKey3 = Key('__target3__');
+    const targetKey4 = Key('__target4__');
     testWidgets('should throw AssertionError if builder is null',
         (tester) async {
       try {
         await tester.pumpWidget(
           SealedBlocBuilder4<HelperBloc4, HelperState4, State1, State2, State3,
               State4>(
-            bloc: HelperBloc4(),
+            cubit: HelperBloc4(),
             builder: null,
           ),
         );
@@ -26,30 +30,30 @@ void main() {
       await tester.pumpWidget(
         SealedBlocBuilder4<HelperBloc4, HelperState4, State1, State2, State3,
             State4>(
-          bloc: bloc,
+          cubit: bloc,
           builder: (context, states) {
             return states(
-              (first) => Container(key: Key('__target1__')),
-              (second) => Container(key: Key('__target2__')),
-              (third) => Container(key: Key('__target3__')),
-              (fourth) => Container(key: Key('__target4__')),
+              (first) => const SizedBox(key: targetKey1),
+              (second) => const SizedBox(key: targetKey2),
+              (third) => const SizedBox(key: targetKey3),
+              (fourth) => const SizedBox(key: targetKey4),
             );
           },
         ),
       );
-      expect(find.byKey(Key('__target1__')), findsOneWidget);
+      expect(find.byKey(targetKey1), findsOneWidget);
 
       bloc.add(HelperEvent4.event2);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target2__')), findsOneWidget);
+      expect(find.byKey(targetKey2), findsOneWidget);
 
       bloc.add(HelperEvent4.event3);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target3__')), findsOneWidget);
+      expect(find.byKey(targetKey3), findsOneWidget);
 
       bloc.add(HelperEvent4.event4);
       await tester.pumpAndSettle();
-      expect(find.byKey(Key('__target4__')), findsOneWidget);
+      expect(find.byKey(targetKey4), findsOneWidget);
     });
   });
 }
