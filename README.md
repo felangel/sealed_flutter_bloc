@@ -16,7 +16,7 @@
 </p>
 
 <i>
-  <p align="center"><a href="https://pub.dev/packages/flutter_bloc">flutter_bloc</a> meets <a href="https://pub.dev/packages/sealed_union">sealed_unions</a>
+  <p align="center"><a href="https://pub.dev/packages/flutter_bloc">flutter_bloc</a> meets <a href="https://pub.dev/packages/sealed_unions">sealed_unions</a>
   </p>
 </i>
 
