@@ -36,10 +36,10 @@ class MyState extends Union4Impl<Initial, Loading, Success, Failure> {
 
   factory MyState.loading() => MyState._(unions.second(Loading()));
 
-  factory MyState.success({String data}) =>
+  factory MyState.success({required String data}) =>
       MyState._(unions.third(Success(data: data)));
 
-  factory MyState.failure({String error}) =>
+  factory MyState.failure({required String error}) =>
       MyState._(unions.fourth(Failure(error: error)));
 }
 
@@ -50,13 +50,13 @@ class Loading {}
 class Success {
   final String data;
 
-  Success({this.data});
+  Success({required this.data});
 }
 
 class Failure {
   String error;
 
-  Failure({this.error});
+  Failure({required this.error});
 }
 ```
 

@@ -15,27 +15,13 @@ void main() {
     const targetKey7 = Key('__target7__');
     const targetKey8 = Key('__target8__');
     const targetKey9 = Key('__target9__');
-    testWidgets('should throw AssertionError if builder is null',
-        (tester) async {
-      try {
-        await tester.pumpWidget(
-          SealedBlocBuilder9<HelperBloc9, HelperState9, State1, State2, State3,
-              State4, State5, State6, State7, State8, State9>(
-            cubit: HelperBloc9(),
-            builder: null,
-          ),
-        );
-      } on Object catch (error) {
-        expect(error, isAssertionError);
-      }
-    });
 
     testWidgets('should render properly', (tester) async {
       final bloc = HelperBloc9();
       await tester.pumpWidget(
         SealedBlocBuilder9<HelperBloc9, HelperState9, State1, State2, State3,
             State4, State5, State6, State7, State8, State9>(
-          cubit: bloc,
+          bloc: bloc,
           builder: (context, states) {
             return states(
               (first) => const SizedBox(key: targetKey1),
