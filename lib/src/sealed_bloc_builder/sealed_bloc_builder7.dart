@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart' as bloc;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
+/// {@macro sealedblocwidgetbuilder}
 typedef WidgetSealedJoin7<A, B, C, D, E, F, G> = Widget Function(
   Widget Function(A) mapFirst,
   Widget Function(B) mapSecond,
@@ -14,6 +15,7 @@ typedef WidgetSealedJoin7<A, B, C, D, E, F, G> = Widget Function(
   Widget Function(G) mapSeventh,
 );
 
+/// {@macro sealedblocwidgetbuilder}
 typedef SealedBlocWidgetBuilder7<S extends Union7<A, B, C, D, E, F, G>, A, B, C,
         D, E, F, G>
     = Widget Function(
@@ -23,7 +25,7 @@ typedef SealedBlocWidgetBuilder7<S extends Union7<A, B, C, D, E, F, G>, A, B, C,
 
 /// {@macro sealedblocbuilder}
 class SealedBlocBuilder7<
-    Cubit extends bloc.Cubit<State>,
+    Bloc extends bloc.BlocBase<State>,
     State extends Union7<A, B, C, D, E, F, G>,
     A,
     B,
@@ -31,15 +33,14 @@ class SealedBlocBuilder7<
     D,
     E,
     F,
-    G> extends BlocBuilderBase<Cubit, State> {
+    G> extends BlocBuilderBase<Bloc, State> {
   /// {@macro sealedblocbuilder}
   const SealedBlocBuilder7({
-    Key key,
-    @required this.builder,
-    Cubit cubit,
-    BlocBuilderCondition<State> buildWhen,
-  })  : assert(builder != null),
-        super(key: key, cubit: cubit, buildWhen: buildWhen);
+    Key? key,
+    required this.builder,
+    Bloc? bloc,
+    BlocBuilderCondition<State>? buildWhen,
+  }) : super(key: key, bloc: bloc, buildWhen: buildWhen);
 
   /// {@macro sealedblocwidgetbuilder}
   final SealedBlocWidgetBuilder7<State, A, B, C, D, E, F, G> builder;

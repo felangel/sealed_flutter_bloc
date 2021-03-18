@@ -28,13 +28,13 @@ class MyState extends Union4Impl<Initial, Loading, Success, Failure> {
   /// {@template success}
   /// State when data has been sucessfully loaded.
   /// {@endtemplate}
-  factory MyState.success({String data}) =>
+  factory MyState.success({required String data}) =>
       MyState._(unions.third(Success(data: data)));
 
   /// {@template failure}
   /// State when data load has failed.
   /// {@endtemplate}
-  factory MyState.failure({String error}) =>
+  factory MyState.failure({required String error}) =>
       MyState._(unions.fourth(Failure(error: error)));
 
   /// [Quartet] unions.
@@ -50,7 +50,7 @@ class Loading {}
 /// {@macro success}
 class Success {
   /// {@macro success}
-  const Success({this.data});
+  const Success({required this.data});
 
   /// THe resulting [data].
   final String data;
@@ -59,7 +59,7 @@ class Success {
 /// {@macro failure}
 class Failure {
   /// {@macro failure}
-  const Failure({this.error});
+  const Failure({required this.error});
 
   /// The error which caused the failure.
   final String error;
@@ -135,14 +135,14 @@ class MyHome extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: FloatingActionButton(
               child: const Icon(Icons.check),
-              onPressed: () => context.bloc<MyBloc>().add(MyEvent.load),
+              onPressed: () => context.read<MyBloc>().add(MyEvent.load),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: FloatingActionButton(
               child: const Icon(Icons.error),
-              onPressed: () => context.bloc<MyBloc>().add(MyEvent.error),
+              onPressed: () => context.read<MyBloc>().add(MyEvent.error),
             ),
           ),
         ],

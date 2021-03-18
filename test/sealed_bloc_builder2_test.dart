@@ -8,25 +8,12 @@ void main() {
   group('SealedBlocBuilder2', () {
     const targetKey1 = Key('__target1__');
     const targetKey2 = Key('__target2__');
-    testWidgets('should throw AssertionError if builder is null',
-        (tester) async {
-      try {
-        await tester.pumpWidget(
-          SealedBlocBuilder2<HelperBloc2, HelperState2, State1, State2>(
-            cubit: HelperBloc2(),
-            builder: null,
-          ),
-        );
-      } on Object catch (error) {
-        expect(error, isAssertionError);
-      }
-    });
 
     testWidgets('should render properly', (tester) async {
       final bloc = HelperBloc2();
       await tester.pumpWidget(
         SealedBlocBuilder2<HelperBloc2, HelperState2, State1, State2>(
-          cubit: bloc,
+          bloc: bloc,
           builder: (context, states) {
             return states(
               (first) => const SizedBox(key: targetKey1),

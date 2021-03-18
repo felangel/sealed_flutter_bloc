@@ -1,3 +1,10 @@
+# 7.0.0
+
+- **BREAKING**: rename `cubit` parameter to `bloc`
+- Upgrade to null safety
+- Updated to `bloc: ^7.0.0`
+- Updated to `flutter_bloc: ^7.0.0`
+
 # 6.0.0
 
 - Updated to `bloc: ^6.0.0`
