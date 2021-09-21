@@ -1,6 +1,5 @@
-import 'package:flutter/widgets.dart';
-
 import 'package:bloc/bloc.dart' as bloc;
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 

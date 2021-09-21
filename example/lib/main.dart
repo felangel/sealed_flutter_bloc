@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
@@ -66,33 +65,27 @@ class Failure {
 }
 
 /// Sample events which bloc can respond to.
-enum MyEvent {
-  /// Load has been requested.
-  load,
+abstract class MyEvent {}
 
-  /// Error has occurred.
-  error
-}
+/// Load has been requested.
+class DataRequested extends MyEvent {}
+
+/// Error has occurred.
+class ErrorOccurred extends MyEvent {}
 
 /// {@template my_bloc}
 /// Simple Data Fetching Bloc
 /// {@endtemplate}
 class MyBloc extends Bloc<MyEvent, MyState> {
   /// {@macro my_bloc}
-  MyBloc() : super(MyState.initial());
+  MyBloc() : super(MyState.initial()) {
+    on<DataRequested>((event, emit) async {
+      emit(MyState.loading());
+      await Future<void>.delayed(const Duration(seconds: 3));
+      emit(MyState.success(data: 'Some Data'));
+    });
 
-  @override
-  Stream<MyState> mapEventToState(MyEvent event) async* {
-    switch (event) {
-      case MyEvent.load:
-        yield MyState.loading();
-        await Future<void>.delayed(const Duration(seconds: 3));
-        yield MyState.success(data: 'Some Data');
-        break;
-      case MyEvent.error:
-        yield MyState.failure(error: 'oops!');
-        break;
-    }
+    on<ErrorOccurred>((event, emit) => emit(MyState.failure(error: 'oops!')));
   }
 }
 
@@ -135,14 +128,14 @@ class MyHome extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: FloatingActionButton(
               child: const Icon(Icons.check),
-              onPressed: () => context.read<MyBloc>().add(MyEvent.load),
+              onPressed: () => context.read<MyBloc>().add(DataRequested()),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: FloatingActionButton(
               child: const Icon(Icons.error),
-              onPressed: () => context.read<MyBloc>().add(MyEvent.error),
+              onPressed: () => context.read<MyBloc>().add(ErrorOccurred()),
             ),
           ),
         ],
