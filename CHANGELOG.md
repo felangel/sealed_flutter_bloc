@@ -1,3 +1,7 @@
+# 7.1.0
+
+- Updated to `bloc: ^7.2.0`
+
 # 7.0.0
 
 - **BREAKING**: rename `cubit` parameter to `bloc`
