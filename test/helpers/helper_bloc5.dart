@@ -34,25 +34,18 @@ class State4 {}
 class State5 {}
 
 class HelperBloc5 extends Bloc<HelperEvent5, HelperState5> {
-  HelperBloc5() : super(HelperState5.first());
-
-  @override
-  Stream<HelperState5> mapEventToState(
-    HelperEvent5 event,
-  ) async* {
-    switch (event) {
-      case HelperEvent5.event2:
-        yield HelperState5.second();
-        break;
-      case HelperEvent5.event3:
-        yield HelperState5.third();
-        break;
-      case HelperEvent5.event4:
-        yield HelperState5.fourth();
-        break;
-      case HelperEvent5.event5:
-        yield HelperState5.fifth();
-        break;
-    }
+  HelperBloc5() : super(HelperState5.first()) {
+    on<HelperEvent5>((event, emit) {
+      switch (event) {
+        case HelperEvent5.event2:
+          return emit(HelperState5.second());
+        case HelperEvent5.event3:
+          return emit(HelperState5.third());
+        case HelperEvent5.event4:
+          return emit(HelperState5.fourth());
+        case HelperEvent5.event5:
+          return emit(HelperState5.fifth());
+      }
+    });
   }
 }

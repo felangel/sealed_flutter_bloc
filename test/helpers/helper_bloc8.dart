@@ -51,34 +51,24 @@ class State7 {}
 class State8 {}
 
 class HelperBloc8 extends Bloc<HelperEvent8, HelperState8> {
-  HelperBloc8() : super(HelperState8.first());
-
-  @override
-  Stream<HelperState8> mapEventToState(
-    HelperEvent8 event,
-  ) async* {
-    switch (event) {
-      case HelperEvent8.event2:
-        yield HelperState8.second();
-        break;
-      case HelperEvent8.event3:
-        yield HelperState8.third();
-        break;
-      case HelperEvent8.event4:
-        yield HelperState8.fourth();
-        break;
-      case HelperEvent8.event5:
-        yield HelperState8.fifth();
-        break;
-      case HelperEvent8.event6:
-        yield HelperState8.sixth();
-        break;
-      case HelperEvent8.event7:
-        yield HelperState8.seventh();
-        break;
-      case HelperEvent8.event8:
-        yield HelperState8.eighth();
-        break;
-    }
+  HelperBloc8() : super(HelperState8.first()) {
+    on<HelperEvent8>((event, emit) {
+      switch (event) {
+        case HelperEvent8.event2:
+          return emit(HelperState8.second());
+        case HelperEvent8.event3:
+          return emit(HelperState8.third());
+        case HelperEvent8.event4:
+          return emit(HelperState8.fourth());
+        case HelperEvent8.event5:
+          return emit(HelperState8.fifth());
+        case HelperEvent8.event6:
+          return emit(HelperState8.sixth());
+        case HelperEvent8.event7:
+          return emit(HelperState8.seventh());
+        case HelperEvent8.event8:
+          return emit(HelperState8.eighth());
+      }
+    });
   }
 }
