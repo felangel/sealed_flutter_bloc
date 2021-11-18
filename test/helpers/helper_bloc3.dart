@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
@@ -25,19 +23,14 @@ class State2 {}
 class State3 {}
 
 class HelperBloc3 extends Bloc<HelperEvent3, HelperState3> {
-  HelperBloc3() : super(HelperState3.first());
-
-  @override
-  Stream<HelperState3> mapEventToState(
-    HelperEvent3 event,
-  ) async* {
-    switch (event) {
-      case HelperEvent3.event2:
-        yield HelperState3.second();
-        break;
-      case HelperEvent3.event3:
-        yield HelperState3.third();
-        break;
-    }
+  HelperBloc3() : super(HelperState3.first()) {
+    on<HelperEvent3>((event, emit) {
+      switch (event) {
+        case HelperEvent3.event2:
+          return emit(HelperState3.second());
+        case HelperEvent3.event3:
+          return emit(HelperState3.third());
+      }
+    });
   }
 }

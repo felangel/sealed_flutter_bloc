@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
@@ -39,28 +37,20 @@ class State5 {}
 class State6 {}
 
 class HelperBloc6 extends Bloc<HelperEvent6, HelperState6> {
-  HelperBloc6() : super(HelperState6.first());
-
-  @override
-  Stream<HelperState6> mapEventToState(
-    HelperEvent6 event,
-  ) async* {
-    switch (event) {
-      case HelperEvent6.event2:
-        yield HelperState6.second();
-        break;
-      case HelperEvent6.event3:
-        yield HelperState6.third();
-        break;
-      case HelperEvent6.event4:
-        yield HelperState6.fourth();
-        break;
-      case HelperEvent6.event5:
-        yield HelperState6.fifth();
-        break;
-      case HelperEvent6.event6:
-        yield HelperState6.sixth();
-        break;
-    }
+  HelperBloc6() : super(HelperState6.first()) {
+    on<HelperEvent6>((event, emit) {
+      switch (event) {
+        case HelperEvent6.event2:
+          return emit(HelperState6.second());
+        case HelperEvent6.event3:
+          return emit(HelperState6.third());
+        case HelperEvent6.event4:
+          return emit(HelperState6.fourth());
+        case HelperEvent6.event5:
+          return emit(HelperState6.fifth());
+        case HelperEvent6.event6:
+          return emit(HelperState6.sixth());
+      }
+    });
   }
 }

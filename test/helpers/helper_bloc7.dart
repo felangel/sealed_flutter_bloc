@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:sealed_unions/sealed_unions.dart';
 
@@ -45,31 +43,22 @@ class State6 {}
 class State7 {}
 
 class HelperBloc7 extends Bloc<HelperEvent7, HelperState7> {
-  HelperBloc7() : super(HelperState7.first());
-
-  @override
-  Stream<HelperState7> mapEventToState(
-    HelperEvent7 event,
-  ) async* {
-    switch (event) {
-      case HelperEvent7.event2:
-        yield HelperState7.second();
-        break;
-      case HelperEvent7.event3:
-        yield HelperState7.third();
-        break;
-      case HelperEvent7.event4:
-        yield HelperState7.fourth();
-        break;
-      case HelperEvent7.event5:
-        yield HelperState7.fifth();
-        break;
-      case HelperEvent7.event6:
-        yield HelperState7.sixth();
-        break;
-      case HelperEvent7.event7:
-        yield HelperState7.seventh();
-        break;
-    }
+  HelperBloc7() : super(HelperState7.first()) {
+    on<HelperEvent7>((event, emit) {
+      switch (event) {
+        case HelperEvent7.event2:
+          return emit(HelperState7.second());
+        case HelperEvent7.event3:
+          return emit(HelperState7.third());
+        case HelperEvent7.event4:
+          return emit(HelperState7.fourth());
+        case HelperEvent7.event5:
+          return emit(HelperState7.fifth());
+        case HelperEvent7.event6:
+          return emit(HelperState7.sixth());
+        case HelperEvent7.event7:
+          return emit(HelperState7.seventh());
+      }
+    });
   }
 }

@@ -1,3 +1,13 @@
+# 8.0.0
+
+- **BREAKING**: feat: upgrade to `bloc v8.0.0`
+- **BREAKING**: feat: upgrade to `flutter_bloc v8.0.0`
+
+# 8.0.0-dev.1
+
+- **BREAKING**: feat: upgrade to `bloc v8.0.0-dev.2`
+- **BREAKING**: feat: upgrade to `flutter_bloc v8.0.0-dev.1`
+
 # 7.1.0
 
 - Updated to `bloc: ^7.2.0`
