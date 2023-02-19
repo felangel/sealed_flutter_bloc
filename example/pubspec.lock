@@ -84,7 +84,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "8.0.0"
+    version: "8.0.1"
   sealed_unions:
     dependency: transitive
     description:
