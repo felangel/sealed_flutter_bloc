@@ -42,6 +42,7 @@ jobs:
         run: |
           flutter packages get
           flutter pub global activate pana
+          sudo apt-get install webp
 
       - name: Verify Pub Score
         run: |
