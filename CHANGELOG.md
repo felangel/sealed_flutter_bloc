@@ -1,3 +1,10 @@
+# 8.0.1
+
+- chore: add screenshots to `pubspec.yaml`
+- chore: upgrade example dependencies
+- refactor: remove deprecated `invariant_booleans` lint
+- ci: upgrade workflow versions
+
 # 8.0.0
 
 - **BREAKING**: feat: upgrade to `bloc v8.0.0`
