@@ -1,0 +1,3 @@
+dependency_overrides:
+  sealed_flutter_bloc:
+    path: ../
