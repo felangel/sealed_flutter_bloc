@@ -10,7 +10,7 @@ class HelperState2 extends Union2Impl<State1, State2> {
 
   factory HelperState2.second() => HelperState2._(unions.second(State2()));
 
-  static final Doublet<State1, State2> unions = const Doublet<State1, State2>();
+  static const Doublet<State1, State2> unions = Doublet<State1, State2>();
 }
 
 class State1 {}

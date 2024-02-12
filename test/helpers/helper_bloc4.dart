@@ -14,8 +14,8 @@ class HelperState4 extends Union4Impl<State1, State2, State3, State4> {
 
   factory HelperState4.fourth() => HelperState4._(unions.fourth(State4()));
 
-  static final Quartet<State1, State2, State3, State4> unions =
-      const Quartet<State1, State2, State3, State4>();
+  static const Quartet<State1, State2, State3, State4> unions =
+      Quartet<State1, State2, State3, State4>();
 }
 
 class State1 {}

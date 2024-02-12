@@ -8,7 +8,7 @@ class HelperState1 extends Union0Impl<State1> {
 
   factory HelperState1.first() => HelperState1._(unions.first(State1()));
 
-  static final Nullet<State1> unions = const Nullet<State1>();
+  static const Nullet<State1> unions = Nullet<State1>();
 }
 
 class State1 {}

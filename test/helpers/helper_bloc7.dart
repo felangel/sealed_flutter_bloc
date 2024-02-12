@@ -6,8 +6,8 @@ enum HelperEvent7 { event2, event3, event4, event5, event6, event7 }
 class HelperState7
     extends Union7Impl<State1, State2, State3, State4, State5, State6, State7> {
   HelperState7._(
-      Union7<State1, State2, State3, State4, State5, State6, State7> union)
-      : super(union);
+    Union7<State1, State2, State3, State4, State5, State6, State7> union,
+  ) : super(union);
 
   factory HelperState7.first() => HelperState7._(unions.first(State1()));
 
@@ -23,9 +23,8 @@ class HelperState7
 
   factory HelperState7.seventh() => HelperState7._(unions.seventh(State7()));
 
-  static final Septet<State1, State2, State3, State4, State5, State6, State7>
-      unions =
-      const Septet<State1, State2, State3, State4, State5, State6, State7>();
+  static const Septet<State1, State2, State3, State4, State5, State6, State7>
+      unions = Septet<State1, State2, State3, State4, State5, State6, State7>();
 }
 
 class State1 {}

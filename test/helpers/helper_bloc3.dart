@@ -12,8 +12,8 @@ class HelperState3 extends Union3Impl<State1, State2, State3> {
 
   factory HelperState3.third() => HelperState3._(unions.third(State3()));
 
-  static final Triplet<State1, State2, State3> unions =
-      const Triplet<State1, State2, State3>();
+  static const Triplet<State1, State2, State3> unions =
+      Triplet<State1, State2, State3>();
 }
 
 class State1 {}
