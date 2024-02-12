@@ -14,10 +14,10 @@ jobs:
         run: flutter packages get
 
       - name: Format
-        run: flutter format --set-exit-if-changed lib test example
+        run: dart format --set-exit-if-changed lib test example
 
       - name: Analyze
-        run: flutter analyze lib test example
+        run: dart analyze lib test example
 
       - name: Run tests
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
@@ -41,7 +41,7 @@ jobs:
       - name: Install Dependencies
         run: |
           flutter packages get
-          flutter pub global activate pana
+          flutter pub global activate pana 0.21.45
           sudo apt-get install webp
 
       - name: Verify Pub Score
