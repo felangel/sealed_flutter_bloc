@@ -33,8 +33,8 @@ class SealedBlocBuilder6<
     F> extends BlocBuilderBase<Bloc, State> {
   /// {@macro sealedblocbuilder}
   const SealedBlocBuilder6({
-    Key? key,
     required this.builder,
+    Key? key,
     Bloc? bloc,
     BlocBuilderCondition<State>? buildWhen,
   }) : super(key: key, bloc: bloc, buildWhen: buildWhen);

@@ -17,8 +17,8 @@ class HelperState5 extends Union5Impl<State1, State2, State3, State4, State5> {
 
   factory HelperState5.fifth() => HelperState5._(unions.fifth(State5()));
 
-  static final Quintet<State1, State2, State3, State4, State5> unions =
-      const Quintet<State1, State2, State3, State4, State5>();
+  static const Quintet<State1, State2, State3, State4, State5> unions =
+      Quintet<State1, State2, State3, State4, State5>();
 }
 
 class State1 {}

@@ -31,8 +31,8 @@ class SealedBlocBuilder1<Bloc extends bloc.BlocBase<State>,
     State extends Union0<A>, A> extends BlocBuilderBase<Bloc, State> {
   /// {@macro sealedblocbuilder}
   const SealedBlocBuilder1({
-    Key? key,
     required this.builder,
+    Key? key,
     Bloc? bloc,
     BlocBuilderCondition<State>? buildWhen,
   }) : super(key: key, bloc: bloc, buildWhen: buildWhen);

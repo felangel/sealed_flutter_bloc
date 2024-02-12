@@ -20,8 +20,8 @@ class HelperState6
 
   factory HelperState6.sixth() => HelperState6._(unions.sixth(State6()));
 
-  static final Sextet<State1, State2, State3, State4, State5, State6> unions =
-      const Sextet<State1, State2, State3, State4, State5, State6>();
+  static const Sextet<State1, State2, State3, State4, State5, State6> unions =
+      Sextet<State1, State2, State3, State4, State5, State6>();
 }
 
 class State1 {}

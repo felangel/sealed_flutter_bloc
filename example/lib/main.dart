@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sealed_flutter_bloc/sealed_flutter_bloc.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 /// Example of [Union4Impl] which consists of:
 /// * [Initial]
@@ -12,7 +12,7 @@ void main() => runApp(MyApp());
 /// * [Success]
 /// * [Failure]
 class MyState extends Union4Impl<Initial, Loading, Success, Failure> {
-  MyState._(Union4<Initial, Loading, Success, Failure> union) : super(union);
+  MyState._(super.union);
 
   /// {@template initial}
   /// Initial state before any events are added.
@@ -37,7 +37,7 @@ class MyState extends Union4Impl<Initial, Loading, Success, Failure> {
       MyState._(unions.fourth(Failure(error: error)));
 
   /// [Quartet] unions.
-  static final unions = const Quartet<Initial, Loading, Success, Failure>();
+  static const unions = Quartet<Initial, Loading, Success, Failure>();
 }
 
 /// {@macro initial}
@@ -89,22 +89,32 @@ class MyBloc extends Bloc<MyEvent, MyState> {
   }
 }
 
+/// {@template my_app}
 /// [StatelessWidget] which provides an instance of [MyBloc] to [MyHome].
+/// {@endtemplate}
 class MyApp extends StatelessWidget {
+  /// {@macro my_app}
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: BlocProvider<MyBloc>(
         create: (context) => MyBloc(),
-        child: MyHome(),
+        child: const MyHome(),
       ),
     );
   }
 }
 
+/// {@template my_home}
 /// [StatelessWidget] which uses [SealedBlocBuilder4]
 /// to ensure each bloc state maps to a widget.
+/// {@endtemplate}
 class MyHome extends StatelessWidget {
+  /// {@macro my_home}
+  const MyHome({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,14 +135,14 @@ class MyHome extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: FloatingActionButton(
               child: const Icon(Icons.check),
               onPressed: () => context.read<MyBloc>().add(DataRequested()),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: FloatingActionButton(
               child: const Icon(Icons.error),
               onPressed: () => context.read<MyBloc>().add(ErrorOccurred()),

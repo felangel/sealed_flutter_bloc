@@ -15,10 +15,10 @@ enum HelperEvent9 {
 class HelperState9 extends Union9Impl<State1, State2, State3, State4, State5,
     State6, State7, State8, State9> {
   HelperState9._(
-      Union9<State1, State2, State3, State4, State5, State6, State7, State8,
-              State9>
-          union)
-      : super(union);
+    Union9<State1, State2, State3, State4, State5, State6, State7, State8,
+            State9>
+        union,
+  ) : super(union);
 
   factory HelperState9.first() => HelperState9._(unions.first(State1()));
 
@@ -38,10 +38,10 @@ class HelperState9 extends Union9Impl<State1, State2, State3, State4, State5,
 
   factory HelperState9.ninth() => HelperState9._(unions.ninth(State9()));
 
-  static final Nonet<State1, State2, State3, State4, State5, State6, State7,
+  static const Nonet<State1, State2, State3, State4, State5, State6, State7,
           State8, State9> unions =
-      const Nonet<State1, State2, State3, State4, State5, State6, State7,
-          State8, State9>();
+      Nonet<State1, State2, State3, State4, State5, State6, State7, State8,
+          State9>();
 }
 
 class State1 {}
