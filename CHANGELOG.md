@@ -1,3 +1,9 @@
+# 8.0.2
+
+- chore: update sponsors
+- chore: add `topics` to `pubspec.yaml`
+- refactor: update `analysis_options.yaml`
+
 # 8.0.1
 
 - chore: add screenshots to `pubspec.yaml`
