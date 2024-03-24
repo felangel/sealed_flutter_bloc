@@ -1,4 +1,8 @@
 <p align="center">
+  ⚠️ This package has been discontinued in favor of the built-in <a href="https://dart.dev/language/class-modifiers#sealed">sealed class modifier</a> introduced in Dart 3.0. ⚠️
+</p>
+
+<p align="center">
   <img src="https://github.com/felangel/sealed_flutter_bloc/raw/master/doc/assets/sealed_flutter_bloc_logo_full.png" height="100" alt="Sealed Flutter Bloc">
 </p>
 
